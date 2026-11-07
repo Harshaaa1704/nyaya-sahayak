@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: nyaya-sahayak-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: AI_PROVIDER
+        value: groq
+      - key: AI_API_KEY
+        sync: false
+      - key: AI_MODEL
+        value: openai/gpt-oss-20b
+      - key: AI_BASE_URL
+        value: https://api.groq.com/openai/v1
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: MAX_UPLOAD_MB
+        value: "20"
